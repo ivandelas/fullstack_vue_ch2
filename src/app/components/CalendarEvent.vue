@@ -29,7 +29,7 @@ export default {
   margin-top: 6px;
   margin-bottom: 6px;
   display: block;
-  color: #4C4C4C;
+  color: rgb(31, 221, 212);
   padding: 5px;
 
   .details {
