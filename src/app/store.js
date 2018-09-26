@@ -30,7 +30,7 @@ export const store = {
     });
   },
   updateEvent (dayId, originalEventDetails, newEventDetails) {
-    const eventObj = const eventObj = this.getEventObj(dayId, originalEventDetails);
+    const eventObj = this.getEventObj(dayId, originalEventDetails);
     eventObj.details = newEventDetails;
     eventObj.edit = false;
   },
