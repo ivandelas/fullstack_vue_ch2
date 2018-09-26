@@ -1,5 +1,5 @@
 <template>
-  <div class="day column" v-on="click=setActiveDay(day.id)" >
+  <div class="day column" v-on:click="setActiveDay(day.id)" >
     <div class="day-banner has-text-white has-text-centered">{{ day.abbvTitle }}</div>
     <div class="day-details">
       <div class="day-number">{{ day.id }}</div>
