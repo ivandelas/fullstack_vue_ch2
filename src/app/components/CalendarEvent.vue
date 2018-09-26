@@ -8,9 +8,9 @@
       </div>
     </div>
     <div v-if="event.edit">
-      <input type="text" v-bind:placeholder="event.details"/>
+      <input type="text" v-bind:placeholder="event.details" v-model="newEventdetails"/>
       <div class="has-text-centered icons">
-        <i class="fa fa-check"></i>
+        <i class="fa fa-check" v-on:click="updateEvent(day.id, event.details, newEventdetails)"></i>
       </div>
     </div>
   </div>
@@ -22,6 +22,11 @@ import { store } from '../store.js';
 export default {
   name: 'CalendarEvent',
   props: ['event', 'day'],
+  data () {
+    return {
+      newEventDetails: ''
+    }
+  },
   computed: {
     getEventBackgroundColor() {
       const colors = ['#FF9999', '#85D6FF', '#99FF99'];
@@ -32,6 +37,11 @@ export default {
   methods: {
     editEvent (dayId, eventDetails) {
       store.editEvent(dayId, eventDetails);
+    },
+    updateEvent (dayId, originalEventDetails, updatedEventDetails) {
+      if (updatedEventDetails === '') updatedEventDetails = originalEventDetails;
+      store.updateEvent(dayId, originalEventDetails, updatedEventDetails);
+      this.newEventDetails = '';
     },
   }
 }
